@@ -1,0 +1,73 @@
+<!-- HTML content with adjusted 'Get to know us' link styling -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REF MARKETING</title>
+    <link rel="stylesheet" href="stylez.css"> <!-- Assume this is the CSS file with the updated styles -->
+</head>
+<body>
+    <div class="background-section"> 
+        <header>
+            <nav>
+                <img src="logo.png" alt="REF Marketing Logo" class="logo">
+                <div class="nav-links">
+                    <a href="professors.html">Get to know us</a> <!-- Same style as the action buttons -->
+                    <a href="register.html" class="action-btn">Register Now</a>
+                    <a href="login.html" class="action-btn">Log-in Now</a>
+                </div>
+            </nav>
+            <h1>Welcome to REF MARKETING</h1>
+        </header>
+        
+        <main class="content">
+            <section class="info-section">
+                <img src="robotics.png" alt="Robotics" class="info-image">
+                <p>Welcome to REF Marketing, future engineers! Here we offer different courses relevant to the Computer Engineering program in University of the East, such as Robotics, Programming, PC Maintenance and more!</p>
+            </section>
+            <section class="info-section">
+                <p>Having trouble tracking your progress on your courses? We offer a free progress-tracking tool for students who struggle to keep track of their chosen courses. It also serves as a checklist for your activities to prove just how hardworking you are!</p>
+                <img src="programming.png" alt="Programming" class="info-image">
+                <a href="register.html" style="color: black"><b><u>Sign up for free now!</a>
+            </section>
+        </main>
+    </div>
+
+    <script src='https://cdn.firebase.com/js/client/10.11.1/firebase.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js"></script>
+
+    <script type = "module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        import { getAuth } from "firebase/auth";
+        import { getFirestore } from "firebase/firestore";
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+        const firebaseConfig = {
+        apiKey: "AIzaSyCsiDQp0Xjbmf1C1paCYqaBGZzMEmkjxls",
+        authDomain: "ref-marketing.firebaseapp.com",
+        databaseURL: "https://ref-marketing-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "ref-marketing",
+        storageBucket: "ref-marketing.appspot.com",
+        messagingSenderId: "1085315117065",
+        appId: "1:1085315117065:web:7da21d82a09e223ca708d8",
+        measurementId: "G-EK0J4GPH4V"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+    </script>
+
+</body>
+</html>

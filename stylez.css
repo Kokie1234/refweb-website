@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.background-section {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bgimage.png') no-repeat center center/cover;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.logo {
+    width: 100px;
+}
+
+/* Existing CSS with the modified .nav-links a style */
+.nav-links a {
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s, background-color 0.3s; /* Added transition for background-color */
+    color: white;
+    background-color: #ff0000; /* Set background color for uniformity */
+    padding: 10px 20px; /* Same padding as action buttons */
+    border-radius: 5px; /* Rounded corners */
+    font-weight: bold; /* Make text bold */
+}
+
+.nav-links a:hover {
+    color: #E2E2E2;
+    background-color: #3672B8; /* Change background color on hover */
+}
+
+/* No change to the action button hover style */
+.action-btn:hover {
+    background-color: #3672B8;
+}
+
+.action-btn {
+    background-color: #4A90E2;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.action-btn:hover {
+    background-color: #3672B8;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.info-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    width: 80%;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.info-image {
+    max-width: 300px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.info-section p {
+    width: 50%;
+    text-align: justify;
+	font-size: 20px;
+}
+
+.register-link {
+    display: block;
+    margin-top: 20px;
+    color: #4A90E2;
+    text-decoration: none;
+    font-weight: bold;
+	font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .info-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .info-section p {
+        width: 100%;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links a {
+        margin: 10px;
+    }
+}

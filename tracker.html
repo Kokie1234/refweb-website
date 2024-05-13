@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REF MARKETING</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <img src="logo.png" class="logo">
+            <ul class="nav-links">
+                <a href="MAIN.html" class="Home-btn">Home</a>
+                <button onclick="saveAllCourses()">Save</button>
+            </ul>
+        </nav>
+        <div class="container">
+            <h2>Course Tracker</h2>
+            <div id="course1Section" class="course-section">
+                <h3 id="course1Header">Course 1</h3>
+                <label for="course1">Select Course:</label>
+                <select id="course1" onchange="changeCourseName('course1')">
+                    <option value="software_programming">Software Programming</option>
+                    <option value="coding">Coding</option>
+                    <option value="robotics">Robotics</option>
+                    <option value="pc_maintenance_hardware">PC Maintenance (Hardware)</option>
+                    <option value="pc_maintenance_software">PC Maintenance (Software)</option>
+                    <option value="front_end_programming">Front-end Programming</option>
+                    <option value="back_end_programming">Back-end Programming</option>
+                </select>
+                <div id="activity1Container"></div>
+                <button onclick="addActivity('course1')">Add Activity</button>
+                <button onclick="removeCourseSection('course1Section')">Delete Course</button>
+                <p id="course1Completion" style="color: white;">Completion: 0%</p>
+            </div>
+            <div id="course2Section" class="course-section">
+                <h3 id="course2Header">Course 2</h3>
+                <label for="course2">Select Course:</label>
+                <select id="course2" onchange="changeCourseName('course2')">
+                    <option value="software_programming">Software Programming</option>
+                    <option value="coding">Coding</option>
+                    <option value="robotics">Robotics</option>
+                    <option value="pc_maintenance_hardware">PC Maintenance (Hardware)</option>
+                    <option value="pc_maintenance_software">PC Maintenance (Software)</option>
+                    <option value="front_end_programming">Front-end Programming</option>
+                    <option value="back_end_programming">Back-end Programming</option>
+                </select>
+                <div id="activity2Container"></div>
+                <button onclick="addActivity('course2')">Add Activity</button>
+                <button onclick="removeCourseSection('course2Section')">Delete Course</button>
+                <p id="course2Completion" style="color: white;">Completion: 0%</p>
+            </div>
+            <div id="additionalCourses"></div>
+            <button onclick="addCourseSection()">Add Course</button>
+        </div>
+    </div>
+    <script>
+        let activityCount = {};
+        const coursesCount = document.querySelectorAll('.course-section').length;
+        for (let i = 1; i <= coursesCount; i++) {
+            activityCount[`course${i}`] = 1;
+        }
+        window.onload = function() {
+            document.querySelectorAll('.course-section').forEach((section, index) => {
+                const course = `course${index + 1}`;
+                const courseData = JSON.parse(localStorage.getItem(course)) || {};
+                const courseSelect = document.getElementById(course);
+                const activityContainer = document.getElementById(`activity${index + 1}Container`);
+                if (courseData.selectedCourse) {
+                    courseSelect.value = courseData.selectedCourse;
+                    changeCourseName(course);
+                }
+                if (courseData.activities) {
+                    courseData.activities.forEach(activity => {
+                        const newActivityDiv = document.createElement('div');
+                        newActivityDiv.id = `${course}activity${activity.id}`;
+                        newActivityDiv.innerHTML = `
+                            <label for="${course}assignment${activity.id}">Assignment/Activity:</label>
+                            <input type="text" id="${course}assignment${activity.id}" value="${activity.name}">
+                            <input type="checkbox" id="${course}progress${activity.id}" ${activity.completed ? 'checked' : ''} onchange="updateCompletion('${course}')">
+                            <label for="${course}progress${activity.id}">Completed</label>
+                            <button onclick="removeActivity('${course}activity${activity.id}')">Delete Activity</button>
+                        `;
+                        activityContainer.appendChild(newActivityDiv);
+                    });
+                    activityCount[course] = courseData.activities.length + 1;
+                }
+                updateCompletion(course);
+            });
+        };
+        window.onbeforeunload = function() {
+            saveAllCourses();
+        };
+        function saveAllCourses() {
+            document.querySelectorAll('.course-section').forEach((section, index) => {
+                const course = `course${index + 1}`;
+                const courseSelect = document.getElementById(course);
+                const activityContainer = document.getElementById(`activity${index + 1}Container`);
+                const activities = activityContainer.querySelectorAll('div');
+                const courseData = {
+                    selectedCourse: courseSelect.value,
+                    activities: []
+                };
+                activities.forEach(activity => {
+                    const assignmentId = activity.querySelector('input[type="text"]').id;
+                    const name = activity.querySelector('input[type="text"]').value;
+                    const completed = activity.querySelector('input[type="checkbox"]').checked;
+                    courseData.activities.push({
+                        id: assignmentId.replace(`${course}assignment`, ''),
+                        name,
+                        completed,
+                    });
+                });
+                localStorage.setItem(course, JSON.stringify(courseData));
+            });
+            alert('Courses saved successfully!');
+        }
+        function addActivity(course) {
+            const activityContainer = document.getElementById(`activity${course.charAt(course.length - 1)}Container`);
+            const activityId = activityCount[course]++;
+            const newActivityDiv = document.createElement('div');
+            newActivityDiv.id = `${course}activity${activityId}`;
+            newActivityDiv.innerHTML = `
+                <label for="${course}assignment${activityId}">Assignment/Activity:</label>
+                <input type="text" id="${course}assignment${activityId}">
+                <input type="checkbox" id="${course}progress${activityId}" onchange="updateCompletion('${course}')">
+                <label for="${course}progress${activityId}">Completed</label>
+                <button onclick="removeActivity('${course}activity${activityId}')">Delete Activity</button>
+            `;
+            activityContainer.appendChild(newActivityDiv);
+            updateCompletion(course);
+        }
+        function changeCourseName(course) {
+            const courseId = course.charAt(course.length - 1);
+            const courseHeader = document.getElementById(`course${courseId}Header`);
+            const courseSelect = document.getElementById(course);
+            courseHeader.textContent = courseSelect.options[courseSelect.selectedIndex].text;
+            updateCompletion(course);
+        }
+        function updateCompletion(course) {
+            const activityContainer = document.getElementById(`activity${course.charAt(course.length - 1)}Container`);
+            const activities = activityContainer.querySelectorAll('input[type="checkbox"]');
+            const totalActivities = activities.length;
+            const completedActivities = Array.from(activities).filter(checkbox => checkbox.checked).length;
+            const completionPercentage = totalActivities ? Math.round((completedActivities / totalActivities) * 100) : 0;
+            document.getElementById(`${course}Completion`).textContent = `Completion: ${completionPercentage}%`;
+        }
+        function addCourseSection() {
+            const courseNumber = Object.keys(activityCount).length + 1;
+            const newCourseId = `course${courseNumber}`;
+            const newActivityId = `activity${courseNumber}Container`;
+            activityCount[newCourseId] = 1;
+            const newCourseSection = document.createElement('div');
+            newCourseSection.id = `${newCourseId}Section`;
+            newCourseSection.classList.add('course-section');
+            newCourseSection.innerHTML = `
+                <h3 id="course${courseNumber}Header">Course ${courseNumber}</h3>
+                <label for="${newCourseId}">Select Course:</label>
+                <select id="${newCourseId}" onchange="changeCourseName('${newCourseId}')">
+                    <option value="software_programming">Software Programming</option>
+                    <option value="coding">Coding</option>
+                    <option value="robotics">Robotics</option>
+                    <option value="pc_maintenance_hardware">PC Maintenance (Hardware)</option>
+                    <option value="pc_maintenance_software">PC Maintenance (Software)</option>
+                    <option value="front_end_programming">Front-end Programming</option>
+                    <option value="back_end_programming">Back-end Programming</option>
+                </select>
+                <div id="${newActivityId}"></div>
+                <button onclick="addActivity('${newCourseId}')">Add Activity</button>
+                <button onclick="removeCourseSection('${newCourseId}Section')">Delete Course</button>
+                <p id="${newCourseId}Completion" style="color: white;">Completion: 0%</p>
+            `;
+            document.getElementById('additionalCourses').appendChild(newCourseSection);
+        }
+        function removeActivity(activityId) {
+            const activityElement = document.getElementById(activityId);
+            if (activityElement) {
+                activityElement.remove();
+            }
+            const course = activityId.match(/course\d+/)[0];
+            updateCompletion(course);
+        }
+        function removeCourseSection(courseSectionId) {
+            const courseSectionElement = document.getElementById(courseSectionId);
+            if (courseSectionElement) {
+                delete activityCount[courseSectionId.match(/course\d+/)[0]];
+                courseSectionElement.remove();
+            }
+        }
+    </script>
+</body>
+</html>

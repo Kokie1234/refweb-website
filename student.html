@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <title>REF MARKETING</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <img src="logo.png" class="logo">
+			<p style="color: white; text-align: left;">Student Name: <span id="studentName"></span></p>
+            <ul class="nav-links">
+                <a href="MAIN.html" class="Home-btn" style="color: white;">Home</a>
+            </ul>
+        </nav>
+        <div class="container">
+            <h2 style="color: white;"><center>Course Tracker<br><br></center></h2>
+            <!-- Course 1 -->
+            <div id="course1Section" class="course-section" style="color: white;">
+                <h3 id="course1Header">Course 1</h3>
+                <label for="course1">Selected Course:</label>
+                <div id="activity1Container">
+
+                    <br>
+                </div>
+            </div>
+            <br>
+            <!-- Course 2 -->
+            <div id="course2Section" class="course-section" style="color: white;">
+                <h3 id="course2Header">Course 2</h3>
+                <label for="course2">Selected Course:</label>
+                <div id="activity2Container">
+
+                </div>
+                <br>
+            </div>
+            <!-- Additional Courses -->
+            <div id="additionalCourses"></div>
+        </div>
+    </div>
+    <script>
+        window.onload = function() {
+            loadCourses();
+        };
+
+        function loadCourses() {
+            for (let i = 1; i <= 2; i++) {
+                const course = `course${i}`;
+                const courseData = JSON.parse(localStorage.getItem(course)) || {};
+                const courseSelect = document.getElementById(course);
+                const activityContainer = document.getElementById(`activity${i}Container`);
+
+                if (courseData.selectedCourse) {
+                    courseSelect.textContent = courseData.selectedCourse;
+                    changeCourseName(course);
+                }
+
+                if (courseData.activities) {
+                    courseData.activities.forEach(activity => {
+                        const newActivityDiv = document.createElement('div');
+                        newActivityDiv.id = `${course}activity${activity.id}`;
+                        newActivityDiv.innerHTML = `
+                            <label for="${course}assignment${activity.id}">Assignment/Activity:</label>
+                            <input type="text" id="${course}assignment${activity.id}" value="${activity.name}" readonly>
+                            <input type="checkbox" id="${course}progress${activity.id}" ${activity.completed ? 'checked' : ''} disabled>
+                            <label for="${course}progress${activity.id}">Completed</label>
+                            <br>
+                        `;
+                        activityContainer.appendChild(newActivityDiv);
+                    });
+                }
+            }
+        }
+
+        function changeCourseName(course) {
+            const courseId = course.charAt(course.length - 1);
+            const courseHeader = document.getElementById(`course${courseId}Header`);
+            const courseSelect = document.getElementById(course);
+            courseHeader.textContent = courseSelect.options[courseSelect.selectedIndex].text;
+        }
+    </script>
+</body>
+</html>

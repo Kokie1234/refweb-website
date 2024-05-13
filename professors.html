@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About us</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <style>
+        /* Base styling for the body and layout */
+        body {
+            font-family: 'Trebuchet MS', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #6297d6;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+			font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #6297d6;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+			font-family: 'Trebuchet MS', sans-serif;
+			border: 2px solid white;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1rem;
+        }
+
+        /* Styling for sections to provide padding and background color */
+        section {
+            padding: 2rem;
+            background-color: #6297d6;
+            margin: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+			border: 2px solid black;
+			font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        /* Styling for section titles */
+        h2 {
+            color: black;
+            font-weight: 700;
+            text-align: center;
+			padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+			font-family: 'Trebuchet MS', sans-serif;
+			border: 2px solid black;
+        }
+
+        /* Flex container for the list of professors and team members */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Individual card styling for each professor and team member */
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin: 1rem;
+            padding: 1rem;
+            text-align: center;
+            width: 300px;
+            transition: box-shadow 0.3s ease;
+			font-family: 'Trebuchet MS', sans-serif;
+			border: 2px solid black;
+        }
+
+        /* Hover effect for card */
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        /* Styling for card images */
+        .card img {
+            border-radius: 70%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+			border: 2px solid black;
+        }
+
+        /* Styling for card titles */
+        .card h3 {
+            font-size: 1.2rem;
+            margin: 1.3rem 0;
+			font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        /* Styling for card descriptions */
+        .card p {
+            color: black;
+			font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .card {
+                width: 100%;
+            }
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+		
+		
+
+    </style>
+</head>
+<body>
+
+    <header class="header-content">
+        <img src="logo.png" alt="Company Logo" class="inline" style="height: 100px;">
+        <h1 class="inline" style="margin-left: 10px;">Professor and Our Team</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#professors">Professor</a>
+        <a href="#team">Our Team</a>
+        <!-- Back button that links back to MAIN.html -->
+        <a href="MAIN.html">Back</a>
+    </nav>
+
+    <!-- Section for Professors -->
+    <section id="professors">
+        <h2>Professor</h2>
+        <div class="container">
+            <div class="card">
+                <img src="cabreros.jpg" alt="Photo of Engr. Arianne Cabreros, Professor of Computer Engineering">
+                <h3>Engr. Arianne Cabreros</h3>
+                <p>Professor of Computer Engineering</p>
+            </div>
+            <!-- Add more professors as needed -->
+        </div>
+    </section>
+
+    <!-- Section for Team -->
+    <section id="team">
+        <h2>Our Team</h2>
+        <div class="container">
+            <div class="card">
+                <img src="cruz.jpg" alt="Photo of Gian Eric Miguelle F. Cruz">
+                <h3>Gian Eric Miguelle F. Cruz</h3>
+                <p>cruz.gianericmiguelle@ue.edu.ph</p>
+            </div>
+            <div class="card">
+                <img src="golino.jpg" alt="Photo of Marc Angelo B. Golino">
+                <h3>Marc Angelo B. Golino</h3>
+                <p>golino.marcangelo@ue.edu.ph</p>
+            </div>
+            <div class="card">
+                <img src="limchu.jpg" alt="Photo of Jommel M. Limchu">
+                <h3>Jommel M. Limchu</h3>
+                <p>limchu.jommel@ue.edu.ph</p>
+            </div>
+            <div class="card">
+                <img src="masiglat.jpg" alt="Photo of Jayson Andrei A. Masiglat">
+                <h3>Jayson Andrei A. Masiglat</h3>
+                <p>masiglat.jaysonandrei@ue.edu.ph</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->	
+    <footer>
+        &copy; 2024 REF Marketing Organization. All rights reserved.
+    </footer>
+
+</body>
+</html>

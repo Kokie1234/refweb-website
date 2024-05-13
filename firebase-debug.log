@@ -1,0 +1,25 @@
+[debug] [2024-05-13T02:53:58.217Z] ----------------------------------------------------------------------
+[debug] [2024-05-13T02:53:58.219Z] Command:       C:\Users\Licht\DOWNLO~1\WEBSIT~1\website\firebase-tools-instant-win.exe C:\Users\Licht\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\bin\firebase init
+[debug] [2024-05-13T02:53:58.220Z] CLI Version:   13.8.3
+[debug] [2024-05-13T02:53:58.220Z] Platform:      win32
+[debug] [2024-05-13T02:53:58.220Z] Node Version:  v18.5.0
+[debug] [2024-05-13T02:53:58.221Z] Time:          Mon May 13 2024 10:53:58 GMT+0800 (Taipei Standard Time)
+[debug] [2024-05-13T02:53:58.221Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-05-13T02:53:58.291Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-05-13T02:53:58.291Z] > authorizing via signed-in user (earlmantawid10@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Licht\Downloads\WebsiteGolino\website
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+

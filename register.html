@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register Page</title>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(bgimage.png) no-repeat center center fixed; 
+    background-size: cover;
+  }
+
+  .register-container {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .register-container h2 {
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  .input-group {
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .input-group input {
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    width: 100%;
+  }
+
+  .register-btn {
+    background: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .register-footer {
+    color: white;
+  }
+
+  .register-footer a {
+    color: #b8a9c9;
+    text-decoration: none;
+  }
+
+  /* Added CSS for radio buttons */
+  .radio-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .radio-buttons label {
+    color: white;
+  }
+
+</style>
+</head>
+<body>
+
+<div id = "registerForm" class="register-container">
+  <h2><a style="color: black;">Register</h2>
+
+  <!-- Added radio buttons -->
+  <div class="radio-buttons">
+    <label for="AdminBtn"><input type="radio" id="AdminBtn" name="register-option">Admin Button</label>
+    <label for="StudentBtn"><input type="radio" id="StudentBtn" name="register-option">Student Button</label>
+  </div>
+
+  <form id ="registerUser">
+    <div class="input-group">
+      <input type="text" id="username" style="color: black;" placeholder="Username" required>
+      <span class="icon">&#128100;</span>
+    </div>
+
+    <div class="input-group">
+      <input type="email" id="email" style="color: black;" placeholder="Email" required>
+      <span class="icon">&#9993;</span>
+    </div>
+
+    <div class="input-group">
+      <input type="password" id="password" style="color: black;" placeholder="Password" required>
+      <span class="icon">&#128274;</span>
+    </div>
+
+    <div class="input-group">
+      <input type="password" id="confirmPasswo/rd" style="color: black;" placeholder="Confirm Password" required>
+      <span class="icon">&#128274;</span>
+    </div>
+
+    <button class="register-btn" type="submit">Register</button>
+  </form>
+
+  <div class="register-footer">
+    Already have an account? <a href="login.html" style="color: blue;"><b><u>Login</a>
+  </div>
+</div>
+
+<script src = "scripts/auth.js"></script>
+</body>
+</html>
