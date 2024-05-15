@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Panel</title>
+					<a href="index.html" style="color:blue;"><b><u>Home</b></u></a>
+	<link rel="stylesheet" href="style.css">
+    <style>
+        .course-section {
+            border: 1px solid #000;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="studentPanel">
+        <!-- Student Panel Sections will be populated here -->
+    </div>
+
+    <script>
+        window.onload = function() {
+            loadCourses();
+        };
+
+        function loadCourses() {
+            for (let i = 1; i <= 2; i++) {
+                const course = `course${i}`;
+                const courseData = JSON.parse(localStorage.getItem(course)) || {};
+                
+                const courseSection = document.createElement('div');
+                courseSection.id = `${course}Section`;
+                courseSection.classList.add('course-section');
+                
+                const courseHeader = document.createElement('h3');
+                courseHeader.id = `${course}Header`;
+                courseHeader.textContent = `Course ${i}`;
+                courseSection.appendChild(courseHeader);
+                
+                const activityContainer = document.createElement('div');
+                activityContainer.id = `activity${i}Container`;
+                courseSection.appendChild(activityContainer);
+
+                if (courseData.selectedCourse) {
+                    courseHeader.textContent = courseData.selectedCourse;
+                }
+
+                if (courseData.activities) {
+                    courseData.activities.forEach(activity => {
+                        const newActivityDiv = document.createElement('div');
+                        newActivityDiv.id = `${course}activity${activity.id}`;
+                        newActivityDiv.innerHTML = `
+                            <label for="${course}assignment${activity.id}">Assignment/Activity:</label>
+                            <input type="text" id="${course}assignment${activity.id}" value="${activity.name}" readonly>
+                            <input type="checkbox" id="${course}progress${activity.id}" ${activity.completed ? 'checked' : ''} disabled>
+                            <label for="${course}progress${activity.id}">Completed</label>
+                            <br>
+                        `;
+                        activityContainer.appendChild(newActivityDiv);
+                    });
+                }
+
+                document.getElementById('studentPanel').appendChild(courseSection);
+            }
+        }
+    </script>
+</body>
+</html>

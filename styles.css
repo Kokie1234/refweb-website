@@ -1,0 +1,72 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #7b2cbf;
+    background: linear-gradient(to right, #9d50bb, #6e48aa);
+    background: url(bgimage.png) no-repeat center center fixed; 
+    background-size: cover;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+}
+
+.login-container h2 {
+    color: black;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.input-group input {
+    background: none;
+    border: none;
+    outline: none;
+    color: black;
+    width: 100%;
+}
+
+.input-group .icon {
+    color: violet;
+}
+
+.checkbox-group {
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.login-btn {
+    background: violet;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.login-footer {
+    color: black;
+}
+
+.login-footer a {
+    color: violet;
+    text-decoration: none;
+}

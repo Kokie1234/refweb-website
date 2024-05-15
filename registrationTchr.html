@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="stylesreg.css">
+</head>
+<body>
+    <div class="register-container">
+        <h2>Register</h2>
+        <div id="registerError" class="error"></div>
+        <form id="registrationForm">
+            <div class="input-group">
+                <input type="text" id="username" name="username" placeholder="Username" required>
+            </div>
+            <div class="input-group">
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+            </div>
+            <button type="submit" class="register-btn">Register</button>
+        </form>
+        <p class="register-footer">Already have an account? <a href="loginTchr.html">Login here</a></p>
+    </div>
+    <script src="scriptregTchr.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(bgimage.png) no-repeat center center fixed; 
+    background-size: cover;
+}
+
+.register-container {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+}
+
+.register-container h2 {
+    color: black;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.input-group input {
+    background: none;
+    border: none;
+    outline: none;
+    color: black;
+    width: 100%;
+}
+
+.register-btn {
+    background: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.register-footer {
+    color: white;
+}
+
+.register-footer a {
+    color: #b8a9c9;
+    text-decoration: none;
+}
