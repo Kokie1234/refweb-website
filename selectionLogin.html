@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centered Buttons</title>
+<style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url(bgimage.png) no-repeat center center fixed; 
+      background-size: cover;
+    }
+    
+    .selection-container {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      max-width: 300px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .button-container {
+        text-align: center;
+    }
+    
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        margin: 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+    }
+    
+    .button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+  
+<div class = "selection-container">
+    <div class="button-container">
+        <h2>Who is using the website?</h2>
+        <a href="login.html" class="button">Student</a>
+        <a href="loginTchr.html" class="button">Teacher</a>
+    </div>
+</div>
+
+</body>
+</html>
